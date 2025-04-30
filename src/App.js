@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Use Routes instead of Switch
+import HomePage from './pages/HomePage';
+import AddEntryPage from './components/AddEntryPage';
+import TransactionsPage from './components/TransactionsPage';
+import DashboardPage from './pages/DashboardPage';
+import ChartPage from './pages/ChartPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>  {/* Use Routes instead of Switch */}
+        <Route path="/" element={<HomePage />} />  {/* Use 'element' instead of 'component' */}
+        <Route path="/add-entry" element={<AddEntryPage />} />
+        <Route path="/transactions" element={<TransactionsPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/chart" element={<ChartPage />} />
+      </Routes>
+    </Router>
   );
 }
 
