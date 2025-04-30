@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  list: ['Food', 'Travel', 'Utilities', 'Shopping', 'Salary'],
+  list: ['Food', 'Travel', 'Utilities', 'Shopping', 'Salary','bills', 
+    'healthcare', 'investment', 'entertainment'],
 };
 
 const categorySlice = createSlice({
