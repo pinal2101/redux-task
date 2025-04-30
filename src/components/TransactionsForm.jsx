@@ -15,7 +15,8 @@ const TransactionsForm = () => {
     amount: '',
     category: '',
     description: '',
-    date: ''
+    startDate: '',
+    endDate: ''
   });
 
   const [filterType, setFilterType] = useState('');
@@ -81,7 +82,8 @@ const TransactionsForm = () => {
             <th>Amount (₹)</th>
             <th>Category</th>
             <th>Description</th>
-            <th>Date</th>
+            <th>SatrtDate</th>
+            <th>EndDate</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -126,13 +128,22 @@ const TransactionsForm = () => {
                     />
                   </td>
                   <td>
-                    <input
-                      type="date"
-                      name="date"
-                      value={editData.date}
-                      onChange={handleChange}
-                    />
-                  </td>
+  <input
+    type="date"
+    name="startDate"
+    value={editData.startDate || ''}
+    onChange={handleChange}
+  />
+</td>
+<td>
+  <input
+    type="date"
+    name="endDate"
+    value={editData.endDate || ''}
+    onChange={handleChange}
+  />
+</td>
+
                   <td>
                     <button onClick={() => handleEditSave(transaction.id)}>Save</button>
                     <button onClick={() => setEditId(null)}>Cancel</button>
@@ -144,7 +155,9 @@ const TransactionsForm = () => {
                   <td>₹{transaction.amount}</td>
                   <td>{transaction.category}</td>
                   <td>{transaction.description || '-'}</td>
-                  <td>{transaction.date}</td>
+                  <td>{transaction.startDate}</td>
+                  <td>{transaction.endDate}</td>
+
                   <td>
                     <button onClick={() => handleEditClick(transaction)}>Edit</button>
                     <button onClick={() => handleDelete(transaction.id)}>Delete</button>
